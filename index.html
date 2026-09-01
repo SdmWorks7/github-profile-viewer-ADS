@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GitHub Profile Viewer</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <main class="wrap">
+    <div class="termbar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="termtitle">gh-lookup</span>
+    </div>
+ 
+    <section class="panel">
+      <h1><span class="prompt">$</span> gh-lookup</h1>
+      <p class="tagline">Look up any GitHub profile by username.</p>
+ 
+      <form id="search-form" class="search-form">
+        <span class="input-caret">></span>
+        <input
+          type="text"
+          id="username-input"
+          placeholder="octocat"
+          autocomplete="off"
+          spellcheck="false"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+ 
+      <div id="status" class="status"></div>
+      <div id="spinner" class="spinner hidden">
+        <span class="spinner-ring"></span>
+        <span>Fetching profile...</span>
+      </div>
+ 
+      <article id="result" class="result hidden">
+        <img id="avatar" class="avatar" alt="Avatar" />
+        <div class="info">
+          <h2 id="name"></h2>
+          <a id="login" class="login" target="_blank" rel="noopener"></a>
+          <p id="bio" class="bio"></p>
+ 
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-value" id="followers">0</span>
+              <span class="stat-label">followers</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="following">0</span>
+              <span class="stat-label">following</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="repos">0</span>
+              <span class="stat-label">repos</span>
+            </div>
+          </div>
+ 
+          <div class="meta">
+            <span id="location"></span>
+            <span id="joined"></span>
+          </div>
+ 
+          <a id="profile-link" class="profile-link" target="_blank" rel="noopener">
+            View on GitHub &#8599;
+          </a>
+ 
+          <div class="repos">
+            <h3>Recent repositories</h3>
+            <ul id="repo-list" class="repo-list"></ul>
+          </div>
+        </div>
+      </article>
+    </section>
+ 
+    <p class="footer-note">Original Data from the public GitHub REST API.</p>
+  </main>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
